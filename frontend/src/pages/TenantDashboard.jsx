@@ -104,10 +104,9 @@ const TenantDashboard = () => {
                         />
                         <select className="form-control" style={{ width: "150px" }} value={filterCity} onChange={e => setFilterCity(e.target.value)}>
                             <option value="">All Cities</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="Pune">Pune</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Bangalore">Bangalore</option>
+                            {[...new Set(rooms.map(r => r.property?.city).filter(Boolean).map(c => c.charAt(0).toUpperCase() + c.slice(1).toLowerCase()))].map(city => (
+                                <option key={city} value={city}>{city}</option>
+                            ))}
                         </select>
                         <select className="form-control" style={{ width: "150px" }} value={filterBHK} onChange={e => setFilterBHK(e.target.value)}>
                             <option value="">Any BHK</option>
