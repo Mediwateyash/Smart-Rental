@@ -42,7 +42,7 @@ const Auth = () => {
 
             const roleRoutes = { admin: "/admin", owner: "/owner", tenant: "/tenant" };
             navigate(roleRoutes[data.user.role] || "/");
-            window.location.reload(); // Ensure navbar updates
+            // window.location.reload(); // Removed to prevent 404s on Vercel
         } catch (err) {
             setError(err.response?.data?.msg || "Authentication failed");
         } finally {
