@@ -1,0 +1,22 @@
+[
+    {
+        "property": {
+            "$oid": "REPLACE_WITH_PROPERTY_ID_FROM_MONGODB"
+        },
+        "roomNumber": "101",
+        "rent": 45000,
+        "status": "Vacant",
+        "currentTenant": null
+    },
+    {
+        "property": {
+            "$oid": "REPLACE_WITH_PROPERTY_ID_FROM_MONGODB"
+        },
+        "roomNumber": "102",
+        "rent": 46000,
+        "status": "Occupied",
+        "currentTenant": {
+            "$oid": "REPLACE_WITH_TENANT_ID_IF_OCCUPIED"
+        }
+    }
+]

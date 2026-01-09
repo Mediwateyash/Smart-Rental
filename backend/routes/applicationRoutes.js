@@ -119,4 +119,33 @@ router.put("/:id/status", authMiddleware, async (req, res) => {
     }
 });
 
+// Cancel Application (Tenant only)
+router.put("/:id/cancel", authMiddleware, async (req, res) => {
+    try {
+        const { reason } = req.body;
+        const app = await Application.findById(req.params.id);
+
+        if (!app) return res.status(404).json({ msg: "Application not found" });
+        if (app.tenant.toString() !== req.user.id) return res.status(403).json({ msg: "Not authorized" });
+
+        // If previously approved, free up the room
+        if (app.status === "Approved") {
+            const room = await Room.findById(app.room);
+            if (room) {
+                room.status = "Vacant";
+                room.currentTenant = null;
+                await room.save();
+            }
+        }
+
+        app.status = "Cancelled";
+        app.cancellationReason = reason || "No reason provided";
+        await app.save();
+
+        res.json(app);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 export default router;

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Manual Owner",
+        "email": "manual_owner@example.com",
+        "password": "COPY_HASH_FROM_EXISTING_USER_OR_USE_APP_TO_REGISTER",
+        "role": "owner",
+        "phone": "9876543210",
+        "address": "123 Main St, Mumbai",
+        "occupation": "Real Estate",
+        "monthlyIncome": 100000,
+        "profilePhoto": "https://via.placeholder.com/150",
+        "description": "I am a property owner."
+    },
+    {
+        "name": "Manual Tenant",
+        "email": "manual_tenant@example.com",
+        "password": "password123",
+        "role": "tenant",
+        "phone": "1122334455",
+        "address": "456 Side St, Pune",
+        "occupation": "Software Engineer",
+        "monthlyIncome": 50000,
+        "profilePhoto": "https://via.placeholder.com/150",
+        "description": "Looking for a clean flat."
+    }
+]

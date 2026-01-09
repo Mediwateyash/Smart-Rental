@@ -316,7 +316,7 @@ const OwnerDashboard = () => {
                 <div className="table-wrapper">
                     <h3 style={{ margin: "1rem" }}>Applications Review</h3>
                     <table className="table">
-                        <thead><tr><th>Tenant</th><th>Income</th><th>Room</th><th>Status</th><th>Action</th></tr></thead>
+                        <thead><tr><th>Tenant</th><th>Income</th><th>Room</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
                         <tbody>
                             {applications.map(app => (
                                 <tr key={app._id}>
@@ -324,6 +324,7 @@ const OwnerDashboard = () => {
                                     <td>{app.tenant?.monthlyIncome}</td>
                                     <td>{app.room?.roomNumber}</td>
                                     <td>{app.status}</td>
+                                    <td>{app.cancellationReason || "-"}</td>
                                     <td>
                                         {app.status === 'Pending' && (
                                             <>
@@ -334,7 +335,7 @@ const OwnerDashboard = () => {
                                     </td>
                                 </tr>
                             ))}
-                            {applications.length === 0 && <tr><td colSpan="5">No applications.</td></tr>}
+                            {applications.length === 0 && <tr><td colSpan="6">No applications.</td></tr>}
                         </tbody>
                     </table>
                 </div>

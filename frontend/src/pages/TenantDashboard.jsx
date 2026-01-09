@@ -11,6 +11,11 @@ const TenantDashboard = () => {
     const [isEditingProfile, setIsEditingProfile] = useState(false);
     const [editForm, setEditForm] = useState({});
 
+    // Cancellation Modal State
+    const [cancelModalOpen, setCancelModalOpen] = useState(false);
+    const [selectedAppId, setSelectedAppId] = useState(null);
+    const [cancelReason, setCancelReason] = useState("");
+
     // Search and Filter States
     const [searchTerm, setSearchTerm] = useState("");
     const [filterCity, setFilterCity] = useState("");
@@ -66,6 +71,26 @@ const TenantDashboard = () => {
             setIsEditingProfile(false);
             fetchProfile();
         } catch (err) { alert("Update failed"); }
+    };
+
+    const handleCancelApp = async () => {
+        if (!cancelReason.trim()) return alert("Please provide a reason.");
+        try {
+            await api.put(`/applications/${selectedAppId}/cancel`, { reason: cancelReason });
+            alert("Application Cancelled");
+            setCancelModalOpen(false);
+            setCancelReason("");
+            fetchMyApplications();
+        } catch (err) {
+            console.error(err);
+            alert("Cancellation failed");
+        }
+    };
+
+    const openCancelModal = (appId) => {
+        setSelectedAppId(appId);
+        setCancelReason("");
+        setCancelModalOpen(true);
     };
 
     // Filter logic
@@ -223,7 +248,7 @@ const TenantDashboard = () => {
                         <h3>Application Status</h3>
                         <div className="table-wrapper">
                             <table className="table">
-                                <thead><tr><th>Property</th><th>Room</th><th>Status</th><th>Owner Contact</th></tr></thead>
+                                <thead><tr><th>Property</th><th>Room</th><th>Status</th><th>Owner Contact</th><th>Action</th></tr></thead>
                                 <tbody>
                                     {applications.map(app => (
                                         <tr key={app._id}>
@@ -242,11 +267,43 @@ const TenantDashboard = () => {
                                                     </div>
                                                 ) : "-"}
                                             </td>
+                                            <td>
+                                                {(app.status === 'Pending' || app.status === 'Approved') && (
+                                                    <button className="btn btn-outline" style={{ color: "red", borderColor: "red", padding: "0.2rem 0.5rem", fontSize: "0.8rem" }} onClick={() => openCancelModal(app._id)}>
+                                                        Cancel
+                                                    </button>
+                                                )}
+                                            </td>
                                         </tr>
                                     ))}
                                     {applications.length === 0 && <tr><td colSpan="4">No applications submitted.</td></tr>}
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                )
+            }
+
+
+            {/* Cancellation Modal */}
+            {
+                cancelModalOpen && (
+                    <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <div className="card" style={{ width: "400px", maxWidth: "90%" }}>
+                            <h3 style={{ marginBottom: "1rem" }}>Cancel Application</h3>
+                            <p style={{ marginBottom: "0.5rem" }}>Please specify the reason for cancellation:</p>
+                            <textarea
+                                className="form-control"
+                                rows="3"
+                                style={{ marginBottom: "1rem" }}
+                                value={cancelReason}
+                                onChange={(e) => setCancelReason(e.target.value)}
+                                placeholder="e.g., Found another house, Plans changed..."
+                            />
+                            <div style={{ display: "flex", gap: "1rem", justifyContent: "flex-end" }}>
+                                <button className="btn btn-outline" onClick={() => setCancelModalOpen(false)}>Close</button>
+                                <button className="btn" style={{ background: "red", color: "white" }} onClick={handleCancelApp}>Confirm Cancel</button>
+                            </div>
                         </div>
                     </div>
                 )

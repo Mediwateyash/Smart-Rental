@@ -1,0 +1,43 @@
+[
+    {
+        "title": "Luxury Apartment in Bandra",
+        "address": "Hill Road, Bandra West",
+        "city": "Mumbai",
+        "rent": 45000,
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "coverImage": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+        "images": [
+            "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688"
+        ],
+        "amenities": [
+            "Gym",
+            "Pool",
+            "Parking",
+            "Wi-Fi"
+        ],
+        "owner": {
+            "$oid": "REPLACE_WITH_OWNER_ID_FROM_MONGODB"
+        }
+    },
+    {
+        "title": "Cozy Studio near Station",
+        "address": "Station Road, Kalyan",
+        "city": "Kalyan",
+        "rent": 8000,
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "coverImage": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
+        "images": [
+            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688"
+        ],
+        "amenities": [
+            "Near Station",
+            "24/7 Water"
+        ],
+        "owner": {
+            "$oid": "REPLACE_WITH_OWNER_ID_FROM_MONGODB"
+        }
+    }
+]
