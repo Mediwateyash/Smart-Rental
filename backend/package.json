@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Smart Rental Management System Backend (Node.js + Express + MongoDB)",
+  "description": "Rentify - Rental Management System Backend (Node.js + Express + MongoDB)",
   "main": "server.js",
   "type": "module",
   "scripts": {

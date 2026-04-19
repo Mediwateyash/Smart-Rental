@@ -1,4 +1,4 @@
-# Manual Data Import Guide for MongoDB Atlas
+# Manual Data Import Guide for Rentify MongoDB Atlas
 
 You can manually add data to your database using **MongoDB Compass** and the JSON templates we created.
 

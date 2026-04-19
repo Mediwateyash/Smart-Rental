@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar-left">
-        <div className="navbar-logo">Smart Rental</div>
+        <div className="navbar-logo">Rentify</div>
       </div>
 
       <nav className="navbar-links">

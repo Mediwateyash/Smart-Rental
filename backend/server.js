@@ -22,7 +22,7 @@ app.use(express.json());
 
 // --- Connect to MongoDB ---
 mongoose
-  .connect(process.env.MONGO_URI, { dbName: "smart_rental_db" })
+  .connect(process.env.MONGO_URI, { dbName: "rentify_db" })
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) =>
     console.error("❌ MongoDB connection error:", err.message)

@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
-const uri = "mongodb+srv://diwateyash2004_db_user:25699652@cluster0.cxer5y3.mongodb.net/smartrental?retryWrites=true&w=majority";
+const uri = "mongodb+srv://diwateyash2004_db_user:25699652@cluster0.cxer5y3.mongodb.net/rentify?retryWrites=true&w=majority";
 
 console.log("Testing connection...");
 
 mongoose.connect(uri)
     .then(() => {
-        console.log("✅ SUCCESS! Connected to MongoDB.");
+        console.log("✅ Rentify - Database connection successful!");
         process.exit(0);
     })
     .catch((err) => {

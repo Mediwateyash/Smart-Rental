@@ -10,7 +10,7 @@ function Dashboard() {
             Manage rentals <span className="hero-highlight">smarter</span>, not harder.
           </h1>
           <p className="hero-desc">
-            Smart Rental Management System helps landlords and tenants handle listings, rent,
+            Rentify helps landlords and tenants handle listings, rent,
             and maintenance in one easy-to-use platform.
           </p>
 

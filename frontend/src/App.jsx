@@ -2,6 +2,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Dashboard from "./pages/Dashboard";
 import Properties from "./pages/Properties";
@@ -39,6 +40,7 @@ function App() {
           <Route path="*" element={<h2>Page not found</h2>} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }

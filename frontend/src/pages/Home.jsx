@@ -23,7 +23,7 @@ const Home = () => {
                     </h1>
                     <p>
                         Experience the comfort of finding a home that fits your lifestyle.
-                        Smart Rental Management connects you with premium properties and reliable owners seamlessly.
+                        Rentify connects you with premium properties and reliable owners seamlessly.
                     </p>
                     <div style={{ display: "flex", gap: "1rem" }}>
                         <Link to="/tenant" className="btn btn-primary" style={{ padding: "0.8rem 2rem", fontSize: "1.1rem" }}>Find a Home</Link>
@@ -102,11 +102,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer style={{ marginTop: "4rem", borderTop: "1px solid var(--color-border)", padding: "3rem 0", textAlign: "center", color: "var(--color-text-muted)" }}>
-                <h3 style={{ color: "var(--color-primary)", marginBottom: "1rem" }}>Smart Rental Management</h3>
-                <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
-            </footer>
+
         </div>
     );
 };

@@ -601,3 +601,154 @@ a {
     padding: 0.8rem 1rem;
   }
 }
+
+/* ===========================
+   6. FOOTER (NEW)
+   =========================== */
+.footer {
+  background: #111827; /* Dark background */
+  color: white;
+  padding: 4rem 0 2rem;
+  margin-top: 5rem;
+  border-top: 4px solid var(--color-primary);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.footer-tagline {
+  color: #9ca3af;
+  font-size: 1rem;
+  max-width: 300px;
+}
+
+.footer-dev {
+  flex: 1;
+  min-width: 250px;
+  text-align: right;
+}
+
+.dev-text {
+  font-size: 1.1rem;
+  color: #e5e7eb;
+  margin-bottom: 1.2rem;
+}
+
+.dev-name {
+  font-weight: 700;
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.dev-name::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.dev-name:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-link.linkedin {
+  background: rgba(10, 102, 194, 0.1);
+  color: #0a66c2;
+}
+
+.social-link.linkedin:hover {
+  background: #0a66c2;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(10, 102, 194, 0.3);
+}
+
+.social-link.github {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.social-link.github:hover {
+  background: white;
+  color: #111827;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-dev {
+    text-align: center;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-tagline {
+    margin: 0 auto;
+  }
+}
